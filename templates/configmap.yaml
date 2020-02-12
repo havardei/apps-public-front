@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-configmap
+data:
+  index.html: |
+    <h2><a href="https://apps.stack.it.ntnu.no">https://apps.stack.it.ntnu.no</a></h2>
+    <p>
+    This is the base url for the cluster running various Jupyterhub sites on Openstack.
+    </p>
+    <p> 
+    For more information, please contact jupyterhub@it.ntnu.no
+    </p>

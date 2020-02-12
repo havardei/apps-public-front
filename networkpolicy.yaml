@@ -1,0 +1,27 @@
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
+apiVersion: extensions/v1beta1
+kind: NetworkPolicy
+metadata:
+  name: appsfront
+  namespace: appsfront
+spec:
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          name: kube-ingress
+    ports:
+    - port: 80
+      protocol: TCP
+    - port: 443
+      protocol: TCP
+    - port: 8080
+      protocol: TCP
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: apps-public-front
+  policyTypes:
+  - Ingress
